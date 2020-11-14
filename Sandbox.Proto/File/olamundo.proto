@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Sandbox.Protos";
+
+package olamundo;
+
+// The greeting service definition.
+service OlaMundo {
+  // Sends a greeting
+  rpc Saudacao (OlaRequest) returns (OlaReply);
+}
+
+// The request message containing the user's name.
+message OlaRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message OlaReply {
+  string message = 1;
+}
