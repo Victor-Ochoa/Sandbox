@@ -1,8 +1,13 @@
-﻿using Grpc.Net.Client;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
 using Sandbox.Protos;
 using System;
 
-using (var channel = GrpcChannel.ForAddress("https://localhost:5001/"))
+var option = new GrpcChannelOptions()
+{
+    Credentials = ChannelCredentials.Insecure
+};
+using (var channel = GrpcChannel.ForAddress("http://localhost:9120/",option))
 {
     var client = new OlaMundo.OlaMundoClient(channel);
 
